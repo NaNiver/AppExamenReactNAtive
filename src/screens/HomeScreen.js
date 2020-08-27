@@ -4,8 +4,8 @@ import { Appbar } from 'react-native-paper';
 
 
 export function HomeScreen() {
-  const styleTypes = ['default','dark-content', 'light-content'];
-  const [visibleStatusBar, setVisibleStatusBar] = useState(true);
+  const styleTypes = ['default'];
+  const [visibleStatusBar, setVisibleStatusBar] = useState(true); /*Hook para saber si es necesario cambiar el estado de la barra.*/
   const [styleStatusBar] = useState(styleTypes[0]);
 
   const changeVisibilityStatusBar = () => {
@@ -27,6 +27,9 @@ export function HomeScreen() {
           
           <StatusBar hidden={visibleStatusBar} />
         </View>
+      
+      {/**Hacer esto con los Hooks es lo que aprendí en el curso, no obstante, utlilize varias cosas en las otras dos 
+       * pantallas que venían y otras que yo búsque, como el uso de tabs y o la inclusión de Iconos.**/}
       <View style={styles.buttonContainer}>
         <Button title="Modificar barra de estado" onPress={() => changeVisibilityStatusBar()} color="black"/>
       </View>
@@ -36,6 +39,8 @@ export function HomeScreen() {
   );
 };
 
+
+/*Stilo del botón*/
 const styles = StyleSheet.create({
   container: {
     flex: 1,
